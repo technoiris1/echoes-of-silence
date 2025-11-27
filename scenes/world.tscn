@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=5 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://dt5pjpmk3t2x1" path="res://objects/player.tscn" id="1_32qsh"]
 
@@ -8,6 +8,9 @@ size = Vector3(50, 50, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_okjhm"]
 size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7wd3"]
+albedo_color = Color(0.197078, 0.372472, 0.145856, 1)
 
 [node name="world" type="Node3D"]
 
@@ -19,5 +22,10 @@ shape = SubResource("BoxShape3D_835ub")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_okjhm")
+surface_material_override/0 = SubResource("StandardMaterial3D_i7wd3")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_32qsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.843125, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0457814, 0.998952, 0, -0.998952, 0.0457814, 0, 11.5513, -0.140142)
