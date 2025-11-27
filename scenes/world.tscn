@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=4 format=3 uid="uid://kd2wqp8y5aa5"]
+
+[ext_resource type="PackedScene" uid="uid://dt5pjpmk3t2x1" path="res://objects/player.tscn" id="1_32qsh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_835ub"]
 custom_solver_bias = 0.01
@@ -17,3 +19,5 @@ shape = SubResource("BoxShape3D_835ub")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_okjhm")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_32qsh")]

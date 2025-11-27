@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt5pjpmk3t2x1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tlt3r"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wnshj"]
+radius = 0.4
+height = 1.8
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_tlt3r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_wnshj")
