@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/boujie_water_shader/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
+enabled=PackedStringArray("res://addons/boujie_water_shader/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/mixamo_animation_retargeter/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
 [input]
 
