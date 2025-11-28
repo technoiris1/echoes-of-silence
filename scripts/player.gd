@@ -5,7 +5,8 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 var sensitivity = 0.00175
-@onready var camera = $Camera3D
+@onready var camera = $head/ThirdPerson
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
