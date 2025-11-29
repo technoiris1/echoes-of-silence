@@ -1,29 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=15 format=3 uid="uid://kd2wqp8y5aa5"]
 
-[ext_resource type="PackedScene" uid="uid://dt5pjpmk3t2x1" path="res://objects/player.tscn" id="1_32qsh"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_pcnnk"]
-[ext_resource type="Resource" path="res://data.hterrain" id="3_36sp2"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_ksmp5"]
-[ext_resource type="Texture2D" uid="uid://c0y63f1jxkhqm" path="res://assets/textures/world_slot0_albedo_bump.png" id="5_2so27"]
-[ext_resource type="Texture2D" uid="uid://babi80ajxst6k" path="res://assets/textures/world_slot0_normal_roughness.png" id="6_y0nk6"]
-
-[sub_resource type="Resource" id="Resource_007jw"]
-script = ExtResource("4_ksmp5")
-mode = 0
-textures = [[ExtResource("5_2so27")], [ExtResource("6_y0nk6")]]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phpvc"]
-sky_top_color = Color(0.516867, 0.786234, 0.929689, 1)
-sky_horizon_color = Color(0.733172, 0.83739, 0.845677, 1)
-ground_bottom_color = Color(0.496315, 0.779164, 0.821396, 1)
-sun_curve = 0.121838
-
-[sub_resource type="Sky" id="Sky_skpaw"]
-sky_material = SubResource("ProceduralSkyMaterial_phpvc")
-
-[sub_resource type="Environment" id="Environment_ukacm"]
-background_mode = 2
-sky = SubResource("Sky_skpaw")
+[ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
+[ext_resource type="PackedScene" uid="uid://dwnhqfjq7v1pq" path="res://demo/components/Borders.tscn" id="4_c286m"]
+[ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://demo/components/Player.tscn" id="5_wafgt"]
+[ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="7_dofg0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_as5uo"]
 size = Vector3(150, 20, 50)
@@ -159,41 +139,93 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/texture_refraction = SubResource("NoiseTexture2D_eydvu")
 shader_parameter/texture_normal = SubResource("NoiseTexture2D_j6oix")
 
+[sub_resource type="Gradient" id="Gradient_vr1m7"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d8lcj"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bov7h"]
+seamless = true
+color_ramp = SubResource("Gradient_vr1m7")
+noise = SubResource("FastNoiseLite_d8lcj")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_y751x"]
+_shader_parameters = {
+"_mouse_layer": 2147483648,
+"auto_base_texture": 0,
+"auto_height_reduction": 0.0,
+"auto_overlay_texture": 1,
+"auto_slope": 1.0,
+"bias_distance": 512.0,
+"blend_sharpness": 0.87,
+"depth_blur": 0.0,
+"dual_scale_far": 170.0,
+"dual_scale_near": 100.0,
+"dual_scale_reduction": 0.3,
+"dual_scale_texture": 0,
+"enable_macro_variation": true,
+"enable_projection": true,
+"height_blending": true,
+"macro_variation1": Color(0.855, 0.8625, 0.9, 1),
+"macro_variation2": Color(0.9, 0.885, 0.81, 1),
+"macro_variation_slope": 0.333,
+"mipmap_bias": 1.0,
+"noise1_angle": 0.1,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_bov7h"),
+"projection_angular_division": 1.0,
+"projection_threshold": 0.8,
+"tri_scale_reduction": 0.3,
+"world_noise_fragment_normals": false,
+"world_noise_height": 34.0,
+"world_noise_lod_distance": 7500.0,
+"world_noise_max_octaves": 4,
+"world_noise_min_octaves": 2,
+"world_noise_offset": Vector3(2.17, -1.225, 1.9),
+"world_noise_region_blend": 0.33,
+"world_noise_scale": 9.85,
+"world_space_normal_blend": true
+}
+world_background = 2
+auto_shader = true
+dual_scaling = true
+
 [node name="world" type="Node3D"]
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_32qsh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.3012, 62.8678, -153.777)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0457814, 0.998952, 0, -0.998952, 0.0457814, 0, 11.5513, -0.140142)
-light_energy = 1.78
-light_indirect_energy = 1.808
-light_volumetric_fog_energy = 16.0
-light_angular_distance = 25.45
-
-[node name="HTerrain" type="Node3D" parent="."]
-script = ExtResource("2_pcnnk")
-centered = true
-_terrain_data = ExtResource("3_36sp2")
-chunk_size = 64
-collision_enabled = true
-collision_layer = 1
-collision_mask = 1
-shader_type = "Classic4Lite"
-custom_shader = null
-custom_globalmap_shader = null
-texture_set = SubResource("Resource_007jw")
-render_layers = 1
-cast_shadow = 1
-shader_params/u_ground_uv_scale = 20
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = null
-shader_params/u_tile_reduction = null
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ukacm")
 
 [node name="lake" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.097, 50.9943, -212.898)
+visible = false
 mesh = SubResource("BoxMesh_as5uo")
 surface_material_override/0 = SubResource("ShaderMaterial_ckaf7")
+
+[node name="Terrain3D2" type="Terrain3D" parent="."]
+data_directory = "res://demo/data"
+material = SubResource("Terrain3DMaterial_y751x")
+assets = ExtResource("7_dofg0")
+collision_mask = 3
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Environment" parent="." instance=ExtResource("3_utre3")]
+transform = Transform3D(0.999992, -0.00327746, 0.00212187, 0.0032896, 0.999978, -0.00574178, -0.00210299, 0.00574872, 0.999981, 0, 0, 0)
+
+[node name="Borders" parent="." instance=ExtResource("4_c286m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, -3, 512)
+collision_mask = 3
+
+[node name="Player" parent="." instance=ExtResource("5_wafgt")]
+transform = Transform3D(0.176947, 0, -0.98422, 0, 1, 0, 0.98422, 0, 0.176947, 223.143, 105.348, -1833.08)
