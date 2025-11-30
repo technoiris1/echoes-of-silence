@@ -207,8 +207,7 @@ dual_scaling = true
 [node name="world" type="Node3D"]
 
 [node name="lake" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.097, 50.9943, -212.898)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.271, 77.0259, -1805.28)
 mesh = SubResource("BoxMesh_as5uo")
 surface_material_override/0 = SubResource("ShaderMaterial_ckaf7")
 
