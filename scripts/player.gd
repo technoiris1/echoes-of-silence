@@ -1,126 +1,142 @@
 extends CharacterBody3D
-# --- movement ---
-const WALK_SPEED := 5.0
-const SPRINT_SPEED := 9.0
-const JUMP_VELOCITY := 4.5
-var GRAVITY: float = 12.0
-# --- camera ---
-var sensitivity := 0.00175
+
+# Movement constants
+const WALK_SPEED = 5.0
+const SPRINT_SPEED = 9.0
+const JUMP_VELOCITY = 4.5
+const GRAVITY = 12.0
+const ROTATION_SPEED = 10.0
+
+# Camera settings
+var mouse_sensitivity = 0.002
+var camera_rotation_y = 0.0
+
+# Node references
+@onready var camera_pivot = $head
 @onready var camera = $head/ThirdPerson
-# --- animations ---
-@onready var anim_player: AnimationPlayer = $character/AnimationPlayer
-const ANIM_IDLE := "idle"
-const ANIM_WALK := "walking"
-const ANIM_RUN := "running"
-const ANIM_JUMP := "running_jump"
-const ANIM_FALL := "fall"
-const ANIM_PUNCH := "punching"
-var current_anim := ""
-var is_punching := false  # Track if we're in a punch animation
+@onready var anim_player = $character/AnimationPlayer
+
+# Animation state
+var is_punching = false
+var current_anim = ""
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	# force-loop normal locomotion animations
-	var loop_list = [ANIM_IDLE, ANIM_WALK, ANIM_RUN, ANIM_JUMP, ANIM_FALL]
-	for name in loop_list:
-		if anim_player and anim_player.has_animation(name):
-			anim_player.get_animation(name).loop_mode = Animation.LOOP_LINEAR
 	
-	# Make sure punch doesn't loop
-	if anim_player and anim_player.has_animation(ANIM_PUNCH):
-		anim_player.get_animation(ANIM_PUNCH).loop_mode = Animation.LOOP_NONE
-	
-	# Connect to animation finished signal
+	# Setup animation loops
 	if anim_player:
-		anim_player.animation_finished.connect(_on_animation_finished)
-
-func _process(delta):
-	if Input.is_action_just_pressed("escape"):
-		get_tree().quit()
+		var loop_anims = ["idle", "walking", "running", "running_jump", "fall"]
+		for anim_name in loop_anims:
+			if anim_player.has_animation(anim_name):
+				anim_player.get_animation(anim_name).loop_mode = Animation.LOOP_LINEAR
+		
+		# Punch should not loop
+		if anim_player.has_animation("punching"):
+			anim_player.get_animation("punching").loop_mode = Animation.LOOP_NONE
+			anim_player.animation_finished.connect(_on_animation_finished)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * sensitivity)
-		camera.rotate_x(-event.relative.y * sensitivity)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(70))
+		# Store camera rotation
+		camera_rotation_y -= event.relative.x * mouse_sensitivity
+		
+		# Rotate camera pivot
+		camera_pivot.rotation.y = camera_rotation_y
+		
+		# Rotate camera vertically
+		camera.rotation.x -= event.relative.y * mouse_sensitivity
+		camera.rotation.x = clamp(camera.rotation.x, -1.2, 1.2)
 
 func _physics_process(delta):
-	# gravity
+	# Apply gravity
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 	else:
 		velocity.y = -0.01
 	
-	# punch - can punch anytime
-	if Input.is_action_just_pressed("attack") and not is_punching:
-		is_punching = true
-		_play_anim(ANIM_PUNCH)
+	# Handle punch
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if not is_punching:
+			is_punching = true
+			play_animation("punching")
 	
-	# jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Handle jump
+	if Input.is_key_pressed(KEY_SPACE) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		if not is_punching:  # Don't override punch with jump anim
-			_play_anim(ANIM_JUMP)
 	
-	# direction
-	var input_dir := Input.get_vector("left", "right", "front", "back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# Get input direction
+	var input_dir = Vector2.ZERO
+	if Input.is_key_pressed(KEY_W):
+		input_dir.y = 1
+	if Input.is_key_pressed(KEY_S):
+		input_dir.y = -1
+	if Input.is_key_pressed(KEY_A):
+		input_dir.x = -1
+	if Input.is_key_pressed(KEY_D):
+		input_dir.x = 1
 	
-	# sprint
-	var sprinting := false
-	if Input.is_action_pressed("front") and (Input.is_action_pressed("sprint") or Input.is_key_pressed(KEY_CTRL)):
-		sprinting = true
+	input_dir = input_dir.normalized()
 	
-	var speed := WALK_SPEED
-	if sprinting:
-		speed = SPRINT_SPEED
+	# Check if sprinting
+	var is_sprinting = Input.is_key_pressed(KEY_CTRL) and Input.is_key_pressed(KEY_W)
+	var current_speed = SPRINT_SPEED if is_sprinting else WALK_SPEED
 	
-	# movement
-	if direction != Vector3.ZERO:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+	# Calculate movement direction relative to camera rotation
+	var move_direction = Vector3.ZERO
+	if input_dir != Vector2.ZERO:
+		var forward = Vector3(0, 0, -1).rotated(Vector3.UP, camera_rotation_y)
+		var right = Vector3(1, 0, 0).rotated(Vector3.UP, camera_rotation_y)
+		
+		move_direction = (forward * input_dir.y + right * input_dir.x).normalized()
+	
+	# Apply movement
+	if move_direction != Vector3.ZERO:
+		velocity.x = move_direction.x * current_speed
+		velocity.z = move_direction.z * current_speed
+		
+		# Rotate character to face movement direction
+		var target_angle = atan2(move_direction.x, move_direction.z)
+		rotation.y = lerp_angle(rotation.y, target_angle, ROTATION_SPEED * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed * 8 * delta)
-		velocity.z = move_toward(velocity.z, 0, speed * 8 * delta)
+		velocity.x = move_toward(velocity.x, 0, current_speed * 8 * delta)
+		velocity.z = move_toward(velocity.z, 0, current_speed * 8 * delta)
 	
 	move_and_slide()
-	_update_anim()
-
-# ---------------------------------------------------------
-# ANIMATION LOGIC
-# ---------------------------------------------------------
-func _play_anim(name: String) -> void:
-	if name != current_anim and anim_player and anim_player.has_animation(name):
-		current_anim = name
-		anim_player.play(name)
-
-func _update_anim():
-	if not anim_player:
-		return
 	
-	# Don't override punch animation while it's playing
+	# Update animations
+	update_animation(is_sprinting)
+
+func update_animation(sprinting: bool):
 	if is_punching:
 		return
 	
-	var h_speed := Vector3(velocity.x, 0, velocity.z).length()
+	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
 	
+	# In air
 	if not is_on_floor():
 		if velocity.y > 0:
-			_play_anim(ANIM_JUMP)
+			play_animation("running_jump")
 		else:
-			_play_anim(ANIM_FALL)
+			play_animation("fall")
 		return
 	
-	if h_speed < 0.1:
-		_play_anim(ANIM_IDLE)
-	elif h_speed > (WALK_SPEED + (SPRINT_SPEED - WALK_SPEED) * 0.5):
-		_play_anim(ANIM_RUN)
-	else:
-		_play_anim(ANIM_WALK)
+	# On ground
+	if horizontal_speed < 0.1:
+		play_animation("idle")
+	elif sprinting and horizontal_speed > 6.0:
+		play_animation("running")
+	elif horizontal_speed > 0.1:
+		play_animation("walking")
+
+func play_animation(anim_name: String):
+	if anim_player and anim_player.has_animation(anim_name) and current_anim != anim_name:
+		current_anim = anim_name
+		anim_player.play(anim_name)
 
 func _on_animation_finished(anim_name: String):
-	# When punch finishes, allow normal animations again
-	if anim_name == ANIM_PUNCH:
+	if anim_name == "punching":
 		is_punching = false
-		# Immediately update to correct animation based on current state
-		_update_anim()
+
+func _process(_delta):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
