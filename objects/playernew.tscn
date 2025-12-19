@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cysi1ego3q0fm"]
+[gd_scene load_steps=5 format=3 uid="uid://cysi1ego3q0fm"]
 
 [ext_resource type="Script" path="res://scripts/playernew.gd" id="1_8h11p"]
 [ext_resource type="PackedScene" uid="uid://ct6gpfwpw4n7u" path="res://objects/character.tscn" id="2_48woh"]
+[ext_resource type="Script" path="res://scripts/spring_arm_3d.gd" id="3_p38ns"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_emfmw"]
 radius = 0.199569
@@ -13,11 +14,6 @@ script = ExtResource("1_8h11p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0440351, 0)
 shape = SubResource("CapsuleShape3D_emfmw")
-
-[node name="head" type="Node3D" parent="."]
-
-[node name="ThirdPerson" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 0.970228, 0.242193, 0, -0.242193, 0.970228, 0, 1.78608, 2.31041)
 
 [node name="character" parent="." instance=ExtResource("2_48woh")]
 transform = Transform3D(-1, 0, -0.000261696, 0, 1, 0, 0.000261696, 0, -1, 0, -0.705296, 0)
@@ -76,5 +72,13 @@ bones/62/rotation = Quaternion(-0.125103, 0.0082551, 0.983843, 0.127805)
 bones/63/rotation = Quaternion(0.0250551, 0.956597, -0.281054, -0.072819)
 bones/64/rotation = Quaternion(0.10281, 0.547594, -0.822521, -0.114154)
 bones/65/rotation = Quaternion(0.00312943, 0.999869, 0.0156124, -0.00292873)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.968422, 0.249315, 0, -0.249315, 0.968422, 0, 1.00257, 1.47771)
+spring_length = 3.0
+script = ExtResource("3_p38ns")
+
+[node name="ThirdPerson" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.97947, 0.201591, 0, -0.201591, 0.97947, 0, 0.70051, 0.180342)
 
 [editable path="character"]
