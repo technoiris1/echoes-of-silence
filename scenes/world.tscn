@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=17 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://hl3rmsam2fsn" path="res://assets/village kit/DoorFrame_Round_WoodDark.gltf" id="7_fiyso"]
 [ext_resource type="PackedScene" uid="uid://cf6k6vhdi2m78" path="res://assets/village kit/Door_8_Round.gltf" id="8_x64mq"]
 [ext_resource type="PackedScene" uid="uid://c1lj62j8s3n7b" path="res://assets/village kit/Roof_Wooden_2x1_Middle.gltf" id="9_mrhm1"]
+[ext_resource type="PackedScene" uid="uid://b4lru60kx37qp" path="res://assets/village kit/Stairs_Exterior_Straight_L.gltf" id="10_hats6"]
+[ext_resource type="PackedScene" uid="uid://cajpyckgren58" path="res://assets/village kit/Stairs_Exterior_Platform45Clean.gltf" id="11_x7ipc"]
+[ext_resource type="PackedScene" uid="uid://ckw0k8lrlcp3c" path="res://assets/village kit/Stairs_Exterior_PlatformU.gltf" id="12_rpigk"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -214,3 +217,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, 2.07651, 53.3719)
 
 [node name="Roof_Wooden_2x1_Middle21" parent="." instance=ExtResource("9_mrhm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, 2.07651, 51.38)
+
+[node name="Stairs_Exterior_Straight_L2" parent="." instance=ExtResource("10_hats6")]
+transform = Transform3D(-0.00657987, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.00657987, 36.1872, -0.00241435, 61.2943)
+
+[node name="Stairs_Exterior_Platform45Clean2" parent="." instance=ExtResource("11_x7ipc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 34.2272, 0, 61.3089)
+
+[node name="Stairs_Exterior_Straight_L3" parent="." instance=ExtResource("10_hats6")]
+transform = Transform3D(0.999974, 0, 0.0072605, 0, 1, 0, -0.0072605, 0, 0.999974, 34.2017, 0.991569, 59.3013)
+
+[node name="Stairs_Exterior_PlatformU2" parent="." instance=ExtResource("12_rpigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0, 59.3077)
+
+[node name="Stairs_Exterior_PlatformU3" parent="." instance=ExtResource("12_rpigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0, 57.3106)
+
+[node name="Stairs_Exterior_PlatformU4" parent="." instance=ExtResource("12_rpigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0.998099, 57.3106)
+
+[node name="Stairs_Exterior_Straight_L4" parent="." instance=ExtResource("10_hats6")]
+transform = Transform3D(0.999776, 0.0198954, 0.00725906, -0.0198949, 0.999802, -0.000144451, -0.0072605, 0, 0.999974, 34.1992, 1.97953, 57.3115)
+
+[node name="Stairs_Exterior_PlatformU5" parent="." instance=ExtResource("12_rpigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0, 55.3326)
+
+[node name="Stairs_Exterior_PlatformU6" parent="." instance=ExtResource("12_rpigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0.998099, 55.3326)
+
+[node name="Stairs_Exterior_PlatformU7" parent="." instance=ExtResource("12_rpigk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 1.99817, 55.3326)
