@@ -9,6 +9,7 @@ radius = 0.199569
 height = 1.5182
 
 [node name="player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_8h11p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -75,7 +76,8 @@ bones/65/rotation = Quaternion(0.00312943, 0.999869, 0.0156124, -0.00292873)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.968422, 0.249315, 0, -0.249315, 0.968422, 0, 1.00257, 1.47771)
-spring_length = 3.0
+spring_length = 5.0
+margin = 0.2
 script = ExtResource("3_p38ns")
 
 [node name="ThirdPerson" type="Camera3D" parent="SpringArm3D"]
