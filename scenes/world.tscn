@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=8 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
-[ext_resource type="PackedScene" uid="uid://dwnhqfjq7v1pq" path="res://demo/components/Borders.tscn" id="4_c286m"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="7_dofg0"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
@@ -84,8 +83,4 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("3_vn2d4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 340.838, 153.947, 56.305)
-
-[node name="Borders" parent="." instance=ExtResource("4_c286m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, -3, 512)
-collision_mask = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.3269, 153.947, 56.305)
