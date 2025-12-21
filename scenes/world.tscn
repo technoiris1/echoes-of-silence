@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=26 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cs8ws04e0ohdg" path="res://assets/village kit/Roof_Tower_RoundTiles.gltf" id="13_o6cg8"]
 [ext_resource type="PackedScene" uid="uid://cybhb6o06v0c5" path="res://assets/village kit/Wall_Arch.gltf" id="14_x2puk"]
 [ext_resource type="PackedScene" uid="uid://dvm4xb0tfqn4n" path="res://assets/village kit/Wall_Plaster_Straight.gltf" id="15_dow0g"]
+[ext_resource type="PackedScene" uid="uid://b1lwj7bqfhu42" path="res://assets/village kit/Prop_Vine4.gltf" id="16_so5vh"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -311,6 +312,75 @@ transform = Transform3D(0.999653, 0, -0.0263514, 0, 1, 0, 0.0263514, 0, 0.999653
 
 [node name="Wall_Plaster_Straight13" parent="house1/visuals" instance=ExtResource("15_dow0g")]
 transform = Transform3D(-0.999682, 0, 0.0252174, 0, 1, 0, -0.0252174, 0, -0.999682, 39.7989, 3.03271, 55.5153)
+
+[node name="Prop_Vine42" parent="house1/visuals" instance=ExtResource("16_so5vh")]
+transform = Transform3D(1, 0, 0, 0, 0.835702, 0.549183, 0, -0.549183, 0.835702, 38.9005, 7.15592, 55.2794)
+
+[node name="Prop_Vine43" parent="house1/visuals" instance=ExtResource("16_so5vh")]
+transform = Transform3D(1, 0, 0, 0, 0.835702, 0.549183, 0, -0.549183, 0.835702, 39.4011, 7.15592, 55.2794)
+
+[node name="Prop_Vine44" parent="house1/visuals" instance=ExtResource("16_so5vh")]
+transform = Transform3D(1, 0, 0, 0, 0.835702, 0.549183, 0, -0.549183, 0.835702, 38.4516, 7.15592, 55.2794)
+
+[node name="Roof_Wooden_2x1_Middle22" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1857, 2.07651, 59.2867)
+
+[node name="Roof_Wooden_2x1_Middle23" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1857, 2.07651, 57.2971)
+
+[node name="Roof_Wooden_2x1_Middle24" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1202, 2.07651, 59.2867)
+
+[node name="Roof_Wooden_2x1_Middle25" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0838, 2.07651, 59.2867)
+
+[node name="Roof_Wooden_2x1_Middle26" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0622, 2.07651, 59.2867)
+
+[node name="Roof_Wooden_2x1_Middle27" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1857, 2.07651, 55.3373)
+
+[node name="Roof_Wooden_2x1_Middle28" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1857, 2.07651, 53.3485)
+
+[node name="Roof_Wooden_2x1_Middle29" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1857, 2.07651, 51.3565)
+
+[node name="Roof_Wooden_2x1_Middle30" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0614, 2.07651, 57.2953)
+
+[node name="Roof_Wooden_2x1_Middle31" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0614, 2.07651, 55.3157)
+
+[node name="Roof_Wooden_2x1_Middle32" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0807, 2.07651, 53.3184)
+
+[node name="Roof_Wooden_2x1_Middle33" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1097, 2.07651, 51.3674)
+
+[node name="Roof_Wooden_2x1_Middle34" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1653, 2.06887, 51.3893)
+
+[node name="Roof_Wooden_2x1_Middle35" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1614, 2.08682, 53.3894)
+
+[node name="Roof_Wooden_2x1_Middle36" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1614, 2.08682, 55.3723)
+
+[node name="Roof_Wooden_2x1_Middle37" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1614, 2.08682, 57.3209)
+
+[node name="Roof_Wooden_2x1_Middle38" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1662, 2.07651, 57.3476)
+
+[node name="Roof_Wooden_2x1_Middle39" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, 2.07651, 55.3699)
+
+[node name="Roof_Wooden_2x1_Middle40" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, 2.07651, 53.3719)
+
+[node name="Roof_Wooden_2x1_Middle41" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, 2.07651, 51.38)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="house1"]
 collision_mask = 3
