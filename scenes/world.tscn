@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=39 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cajpyckgren58" path="res://assets/village kit/Stairs_Exterior_Platform45Clean.gltf" id="11_x7ipc"]
 [ext_resource type="PackedScene" uid="uid://ckw0k8lrlcp3c" path="res://assets/village kit/Stairs_Exterior_PlatformU.gltf" id="12_rpigk"]
 [ext_resource type="PackedScene" uid="uid://cs8ws04e0ohdg" path="res://assets/village kit/Roof_Tower_RoundTiles.gltf" id="13_o6cg8"]
-[ext_resource type="PackedScene" uid="uid://cybhb6o06v0c5" path="res://assets/village kit/Wall_Arch.gltf" id="14_x2puk"]
 [ext_resource type="PackedScene" uid="uid://dvm4xb0tfqn4n" path="res://assets/village kit/Wall_Plaster_Straight.gltf" id="15_dow0g"]
 [ext_resource type="PackedScene" uid="uid://b1lwj7bqfhu42" path="res://assets/village kit/Prop_Vine4.gltf" id="16_so5vh"]
 [ext_resource type="PackedScene" uid="uid://c30fc5usit3p1" path="res://assets/village kit/Balcony_Cross_Straight.gltf" id="17_ymlsb"]
 [ext_resource type="PackedScene" uid="uid://bjh5yqelag821" path="res://assets/village kit/Balcony_Cross_Corner.gltf" id="18_sfmgx"]
 [ext_resource type="PackedScene" uid="uid://dyoy06buyt6re" path="res://assets/village kit/Corner_Exterior_Brick.gltf" id="19_5hm8h"]
+[ext_resource type="PackedScene" uid="uid://brc6hcd5exun" path="res://assets/village kit/Corner_ExteriorWide_Brick.gltf" id="20_p63ix"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -85,6 +85,9 @@ world_background = 2
 auto_shader = true
 dual_scaling = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bsnt7"]
+size = Vector3(1.32227, 2.31689, 0.389893)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wpqj"]
 size = Vector3(0.292419, 3.60172, 9.79556)
 
@@ -95,10 +98,10 @@ size = Vector3(7.89307, 0.14209, 9.94238)
 size = Vector3(7.78387, 3.59875, 0.375488)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp4mo"]
-size = Vector3(2.03516, 2.93579, 1.97766)
+size = Vector3(2.03516, 3.01954, 1.97766)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mvgid"]
-size = Vector3(5.125, 2.96716, 5.12744)
+size = Vector3(0.382324, 2.96716, 5.12744)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ca512"]
 size = Vector3(7.55414, 1, 0.0971069)
@@ -114,6 +117,18 @@ size = Vector3(0.0810547, 1.05554, 3.95923)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6rpws"]
 size = Vector3(7.58002, 1, 0.161255)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euke4"]
+size = Vector3(5.19501, 2.95233, 0.398727)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fl1uw"]
+size = Vector3(1.55759, 2.62122, 0.470201)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fkmu"]
+size = Vector3(1.93353, 0.337067, 2.6058)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jklu"]
+size = Vector3(1.31256, 2.52283, 1)
 
 [node name="world" type="Node3D"]
 
@@ -284,19 +299,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0.998099, 57.3106)
 transform = Transform3D(0.999776, 0.0198954, 0.00725906, -0.0198949, 0.999802, -0.000144451, -0.0072605, 0, 0.999974, 34.1992, 1.97953, 57.3115)
 
 [node name="Stairs_Exterior_PlatformU5" parent="house1/visuals" instance=ExtResource("12_rpigk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0, 55.3326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, -0.0020954, 55.3326)
 
 [node name="Stairs_Exterior_PlatformU6" parent="house1/visuals" instance=ExtResource("12_rpigk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 0.998099, 55.3326)
 
 [node name="Stairs_Exterior_PlatformU7" parent="house1/visuals" instance=ExtResource("12_rpigk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 1.99817, 55.3326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2242, 2.0089, 55.3326)
 
 [node name="Roof_Tower_RoundTiles2" parent="house1/visuals" instance=ExtResource("13_o6cg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6138, 6.34629, 53.2958)
-
-[node name="Wall_Arch2" parent="house1/visuals" instance=ExtResource("14_x2puk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6328, 3.12991, 55.6202)
 
 [node name="Wall_Plaster_Straight2" parent="house1/visuals" instance=ExtResource("15_dow0g")]
 transform = Transform3D(-0.999682, 0, 0.0252174, 0, 1, 0, -0.0252174, 0, -0.999682, 37.9855, 3.03271, 55.5153)
@@ -326,13 +338,10 @@ transform = Transform3D(0.0256535, 0, 0.999671, 0, 1, 0, -0.999671, 0, 0.0256535
 transform = Transform3D(0.999653, 0, -0.0263514, 0, 1, 0, 0.0263514, 0, 0.999653, 41.3347, 3.03271, 50.9001)
 
 [node name="Wall_Plaster_Straight11" parent="house1/visuals" instance=ExtResource("15_dow0g")]
-transform = Transform3D(0.999653, 0, -0.0263514, 0, 1, 0, 0.0263514, 0, 0.999653, 39.3687, 3.03271, 50.8453)
+transform = Transform3D(0.999653, 0, -0.0263514, 0, 1, 0, 0.0263514, 0, 0.999653, 39.3687, 3.03837, 50.8318)
 
 [node name="Wall_Plaster_Straight12" parent="house1/visuals" instance=ExtResource("15_dow0g")]
 transform = Transform3D(0.999653, 0, -0.0263514, 0, 1, 0, 0.0263514, 0, 0.999653, 38.1089, 3.03271, 50.8303)
-
-[node name="Wall_Plaster_Straight13" parent="house1/visuals" instance=ExtResource("15_dow0g")]
-transform = Transform3D(-0.999682, 0, 0.0252174, 0, 1, 0, -0.0252174, 0, -0.999682, 39.7989, 3.03271, 55.5153)
 
 [node name="Prop_Vine42" parent="house1/visuals" instance=ExtResource("16_so5vh")]
 transform = Transform3D(1, 0, 0, 0, 0.835702, 0.549183, 0, -0.549183, 0.835702, 38.9005, 7.15592, 55.2794)
@@ -451,8 +460,30 @@ transform = Transform3D(-1, 0, 0.000279193, 0, 1, 0, -0.000279193, 0, -1, 38.219
 [node name="Corner_Exterior_Brick3" parent="house1/visuals" instance=ExtResource("19_5hm8h")]
 transform = Transform3D(0.999891, 0, -0.0147825, 0, 1, 0, 0.0147825, 0, 0.999891, 43.2639, -0.0308005, 50.425)
 
+[node name="Corner_ExteriorWide_Brick2" parent="house1/visuals" instance=ExtResource("20_p63ix")]
+transform = Transform3D(-0.999999, 0, -0.00148359, 0, 1, 0, 0.00148359, 0, -0.999999, 37.083, 3.032, 55.685)
+
+[node name="Corner_ExteriorWide_Brick3" parent="house1/visuals" instance=ExtResource("20_p63ix")]
+transform = Transform3D(0.00146611, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.00146611, 42.1532, 3.032, 55.685)
+
+[node name="Corner_ExteriorWide_Brick4" parent="house1/visuals" instance=ExtResource("20_p63ix")]
+transform = Transform3D(0.999898, 0, 0.0142589, 0, 1, 0, -0.0142589, 0, 0.999898, 42.2989, 3.032, 50.7743)
+
+[node name="DoorFrame_Round_WoodDark3" parent="house1/visuals" instance=ExtResource("7_fiyso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5948, 3.21322, 55.8154)
+
+[node name="Door_8_Round3" parent="house1/visuals" instance=ExtResource("8_x64mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.091, 3.21322, 55.8944)
+
+[node name="Corner_ExteriorWide_Brick5" parent="house1/visuals" instance=ExtResource("20_p63ix")]
+transform = Transform3D(-0.00965156, 0, 0.999954, 0, 1, 0, -0.999954, 0, -0.00965156, 37.0567, 3.032, 50.6724)
+
 [node name="collisions" type="StaticBody3D" parent="house1"]
 collision_mask = 3
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6292, 4.41436, 55.7483)
+shape = SubResource("BoxShape3D_bsnt7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="house1/collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0725, 1.30086, 55.3143)
@@ -471,7 +502,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3184, 1.29938, 50.5418)
 shape = SubResource("BoxShape3D_a8x0v")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, 1.50012, 55.3151)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, 1.60471, 55.3151)
 shape = SubResource("BoxShape3D_vp4mo")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="house1/collisions"]
@@ -479,11 +510,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, 0.277523, 57.3005)
 shape = SubResource("BoxShape3D_vp4mo")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, -0.458808, 59.2822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, -0.444953, 59.2822)
 shape = SubResource("BoxShape3D_vp4mo")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, -0.458808, 61.306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2094, -0.481465, 61.306)
 shape = SubResource("BoxShape3D_vp4mo")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="house1/collisions"]
@@ -491,7 +522,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3184, 1.29938, 60.1655)
 shape = SubResource("BoxShape3D_a8x0v")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6575, 4.48344, 53.205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1949, 4.48344, 53.205)
 shape = SubResource("BoxShape3D_mvgid")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="house1/collisions"]
@@ -513,3 +544,64 @@ shape = SubResource("BoxShape3D_oo2d2")
 [node name="CollisionShape3D15" type="CollisionShape3D" parent="house1/collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2214, 3.69989, 50.3997)
 shape = SubResource("BoxShape3D_6rpws")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1571, 1.20114, 60.4103)
+shape = SubResource("BoxShape3D_bsnt7")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0382, 4.48344, 53.205)
+shape = SubResource("BoxShape3D_mvgid")
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5097, 4.48704, 50.8109)
+shape = SubResource("BoxShape3D_euke4")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2243, 4.52865, 55.5702)
+shape = SubResource("BoxShape3D_fl1uw")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.0811, 4.52865, 55.6296)
+shape = SubResource("BoxShape3D_fl1uw")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 0.894669, -0.446729, 0, 0.446729, 0.894669, 34.1845, 2.38676, 57.3778)
+shape = SubResource("BoxShape3D_7fkmu")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 0.894669, -0.446729, 0, 0.446729, 0.894669, 34.1845, 1.40753, 59.3861)
+shape = SubResource("BoxShape3D_7fkmu")
+
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(-0.00275759, 0.446727, 0.894666, 0, 0.89467, -0.446729, -0.999996, -0.00123189, -0.00246713, 36.305, 0.305085, 61.2619)
+shape = SubResource("BoxShape3D_7fkmu")
+
+[node name="Area3D" type="Area3D" parent="house1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.593, 4.42453, 56.4664)
+shape = SubResource("BoxShape3D_3jklu")
+
+[node name="labels" type="Node" parent="house1"]
+
+[node name="Label3D" type="Label3D" parent="house1/labels"]
+transform = Transform3D(0.0155328, 0, -0.999879, 0, 1, 0, 0.999879, 0, 0.0155328, 36.9397, 4.50592, 55.6452)
+modulate = Color(0, 0, 0, 1)
+text = "I"
+
+[node name="Label3D2" type="Label3D" parent="house1/labels"]
+transform = Transform3D(0.00502651, 0, 0.999987, 0, 1, 0, -0.999987, 0, 0.00502651, 42.2813, 4.50592, 55.6974)
+modulate = Color(0, 0, 0, 1)
+text = "II"
+
+[node name="Label3D3" type="Label3D" parent="house1/labels"]
+transform = Transform3D(-0.999906, 0, -0.0137003, 0, 1, 0, 0.0137003, 0, -0.999906, 37.1802, 4.7397, 50.513)
+modulate = Color(0, 0, 0, 1)
+text = "III"
+
+[node name="Label3D4" type="Label3D" parent="house1/labels"]
+transform = Transform3D(-0.999906, 0, -0.0137003, 0, 1, 0, 0.0137003, 0, -0.999906, 42.1721, 4.7397, 50.6501)
+modulate = Color(0, 0, 0, 1)
+text = "IIII
+"

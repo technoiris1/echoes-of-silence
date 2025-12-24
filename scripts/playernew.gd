@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var walk_speed := 7.0
 @export var sprint_speed := 12.0
-@export var jump_strength := 20.0
+@export var jump_strength := 15.0
 @export var gravity := 50.0
 
 @onready var spring_arm: SpringArm3D = $SpringArm3D
