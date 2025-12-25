@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=44 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -18,7 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://c30fc5usit3p1" path="res://assets/village kit/Balcony_Cross_Straight.gltf" id="17_ymlsb"]
 [ext_resource type="PackedScene" uid="uid://bjh5yqelag821" path="res://assets/village kit/Balcony_Cross_Corner.gltf" id="18_sfmgx"]
 [ext_resource type="PackedScene" uid="uid://dyoy06buyt6re" path="res://assets/village kit/Corner_Exterior_Brick.gltf" id="19_5hm8h"]
+[ext_resource type="Texture2D" uid="uid://yi0vgc7nlylo" path="res://assets/signs/circle.png" id="20_60v2b"]
 [ext_resource type="PackedScene" uid="uid://brc6hcd5exun" path="res://assets/village kit/Corner_ExteriorWide_Brick.gltf" id="20_p63ix"]
+[ext_resource type="Texture2D" uid="uid://dhjgjfv5cyqf1" path="res://assets/signs/rectangle.png" id="21_cj1cy"]
+[ext_resource type="Texture2D" uid="uid://bbc6y46j75f2l" path="res://assets/signs/star.png" id="22_ej77e"]
+[ext_resource type="Texture2D" uid="uid://cs3y2lfwhy81a" path="res://assets/signs/triangle.png" id="23_s7gv7"]
+[ext_resource type="PackedScene" uid="uid://brdkhmjnsgs56" path="res://scenes/puzzle_1.tscn" id="24_ec2pq"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -326,7 +331,7 @@ transform = Transform3D(-0.0238041, 0, -0.999717, 0, 1, 0, 0.999717, 0, -0.02380
 transform = Transform3D(-0.0238041, 0, -0.999717, 0, 1, 0, 0.999717, 0, -0.0238041, 42.1187, 3.03271, 51.7169)
 
 [node name="Wall_Plaster_Straight7" parent="house1/visuals" instance=ExtResource("15_dow0g")]
-transform = Transform3D(0.0256535, 0, 0.999671, 0, 1, 0, -0.999671, 0, 0.0256535, 37.3196, 3.03271, 51.641)
+transform = Transform3D(0.0256535, 0, 0.999671, 0, 1, 0, -0.999671, 0, 0.0256535, 37.3176, 3.03187, 51.6427)
 
 [node name="Wall_Plaster_Straight8" parent="house1/visuals" instance=ExtResource("15_dow0g")]
 transform = Transform3D(0.0256535, 0, 0.999671, 0, 1, 0, -0.999671, 0, 0.0256535, 37.2592, 3.03271, 53.6121)
@@ -583,25 +588,43 @@ shape = SubResource("BoxShape3D_7fkmu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.593, 4.42453, 56.4664)
 shape = SubResource("BoxShape3D_3jklu")
 
-[node name="labels" type="Node" parent="house1"]
+[node name="signs" type="Node" parent="house1"]
 
-[node name="Label3D" type="Label3D" parent="house1/labels"]
+[node name="Label3D" type="Label3D" parent="house1/signs"]
 transform = Transform3D(0.0155328, 0, -0.999879, 0, 1, 0, 0.999879, 0, 0.0155328, 36.9397, 4.50592, 55.6452)
 modulate = Color(0, 0, 0, 1)
 text = "I"
 
-[node name="Label3D2" type="Label3D" parent="house1/labels"]
+[node name="Label3D2" type="Label3D" parent="house1/signs"]
 transform = Transform3D(0.00502651, 0, 0.999987, 0, 1, 0, -0.999987, 0, 0.00502651, 42.2813, 4.50592, 55.6974)
 modulate = Color(0, 0, 0, 1)
 text = "II"
 
-[node name="Label3D3" type="Label3D" parent="house1/labels"]
+[node name="Label3D3" type="Label3D" parent="house1/signs"]
 transform = Transform3D(-0.999906, 0, -0.0137003, 0, 1, 0, 0.0137003, 0, -0.999906, 37.1802, 4.7397, 50.513)
 modulate = Color(0, 0, 0, 1)
 text = "III"
 
-[node name="Label3D4" type="Label3D" parent="house1/labels"]
+[node name="Label3D4" type="Label3D" parent="house1/signs"]
 transform = Transform3D(-0.999906, 0, -0.0137003, 0, 1, 0, 0.0137003, 0, -0.999906, 42.1721, 4.7397, 50.6501)
 modulate = Color(0, 0, 0, 1)
 text = "IIII
 "
+
+[node name="circle" type="Sprite3D" parent="house1/signs"]
+transform = Transform3D(-0.000191071, 9.78602e-05, -0.0499995, 0.0227928, 0.0445027, -8.88178e-17, 0.0445023, -0.0227926, -0.000214674, 36.9063, 3.98531, 55.6193)
+texture = ExtResource("20_60v2b")
+
+[node name="rect" type="Sprite3D" parent="house1/signs"]
+transform = Transform3D(0.00502386, -0.000143339, -0.0497468, 0.0023058, 0.0499467, 8.89453e-05, 0.0496935, -0.00230306, 0.00502512, 42.316, 4.16471, 55.6421)
+texture = ExtResource("21_cj1cy")
+
+[node name="star" type="Sprite3D" parent="house1/signs"]
+transform = Transform3D(0.049672, -0.00230244, 0.00523345, 0.0023058, 0.0499467, 8.89453e-05, -0.00523198, 0.000152985, 0.0497253, 42.2521, 4.48572, 50.6462)
+texture = ExtResource("22_ej77e")
+
+[node name="triangle" type="Sprite3D" parent="house1/signs"]
+transform = Transform3D(0.099344, -0.00460488, 0.0104669, 0.00461161, 0.0998934, 0.00017789, -0.0104639, 0.000305969, 0.0994506, 37.0577, 4.48572, 50.5325)
+texture = ExtResource("23_s7gv7")
+
+[node name="puzzle1" parent="." instance=ExtResource("24_ec2pq")]
