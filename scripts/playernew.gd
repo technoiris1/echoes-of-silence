@@ -10,34 +10,25 @@ extends CharacterBody3D
 @onready var animation_player: AnimationPlayer = $character/AnimationPlayer
 
 var is_sprinting := false
-var is_paused := false
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
+
+	process_mode = Node.PROCESS_MODE_PAUSABLE
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	animation_player.play("idle")
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		toggle_pause()
-		return
-	if is_paused:
-		return
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		get_tree().paused = !get_tree().paused
 
-func toggle_pause() -> void:
-	is_paused = !is_paused
-	get_tree().paused = is_paused
-
-	Input.mouse_mode = (
-		Input.MOUSE_MODE_VISIBLE
-		if is_paused
-		else Input.MOUSE_MODE_CAPTURED
-	)
+		Input.mouse_mode = (
+			Input.MOUSE_MODE_VISIBLE
+			if get_tree().paused
+			else Input.MOUSE_MODE_CAPTURED
+		)
 
 func _physics_process(delta: float) -> void:
-	if is_paused:
-		return
-
 	var input_dir := Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("back") - Input.get_action_strength("front")
@@ -74,6 +65,4 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("idle")
 
 func _process(_delta: float) -> void:
-	if is_paused:
-		return
 	spring_arm.global_position = global_position
