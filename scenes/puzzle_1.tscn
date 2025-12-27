@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dpvic7bkblkjv" path="res://assets/signs/t.png" id="8_31y02"]
 [ext_resource type="Texture2D" uid="uid://cg6rjxtar54h1" path="res://assets/signs/w.png" id="9_oh36g"]
 
-[node name="puzzle1" type="Node2D"]
+[node name="puzzle1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_a485n")
 
 [node name="Panel" type="Panel" parent="."]
@@ -30,7 +32,7 @@ offset_bottom = 620.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("1_ymg1g")
 
-[node name="rect" type="TextureButton" parent="Panel/signbuttons"]
+[node name="rectangle" type="TextureButton" parent="Panel/signbuttons"]
 offset_left = 193.0
 offset_top = 256.0
 offset_right = 693.0
@@ -54,7 +56,7 @@ offset_bottom = 707.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("4_pf3lc")
 
-[node name="plus" type="TextureButton" parent="Panel/signbuttons"]
+[node name="fake1" type="TextureButton" parent="Panel/signbuttons"]
 offset_left = 349.0
 offset_top = 256.0
 offset_right = 896.0
@@ -62,7 +64,7 @@ offset_bottom = 712.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("5_g3xrx")
 
-[node name="minus" type="TextureButton" parent="Panel/signbuttons"]
+[node name="fake2" type="TextureButton" parent="Panel/signbuttons"]
 offset_left = 412.0
 offset_top = 252.0
 offset_right = 959.0
@@ -70,7 +72,7 @@ offset_bottom = 752.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("6_oxyn1")
 
-[node name="cross" type="TextureButton" parent="Panel/signbuttons"]
+[node name="fake3" type="TextureButton" parent="Panel/signbuttons"]
 offset_left = 482.0
 offset_top = 248.0
 offset_right = 1029.0
@@ -78,7 +80,7 @@ offset_bottom = 748.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("7_j7ueg")
 
-[node name="t" type="TextureButton" parent="Panel/signbuttons"]
+[node name="fake4" type="TextureButton" parent="Panel/signbuttons"]
 offset_left = 557.0
 offset_top = 256.0
 offset_right = 1104.0
@@ -86,7 +88,7 @@ offset_bottom = 756.0
 scale = Vector2(0.08, 0.08)
 texture_normal = ExtResource("8_31y02")
 
-[node name="w" type="TextureButton" parent="Panel/signbuttons"]
+[node name="fake5" type="TextureButton" parent="Panel/signbuttons"]
 offset_left = 617.0
 offset_top = 252.0
 offset_right = 1164.0
@@ -94,28 +96,58 @@ offset_bottom = 752.0
 scale = Vector2(0.12, 0.12)
 texture_normal = ExtResource("9_oh36g")
 
-[node name="slots" type="Node2D" parent="Panel"]
+[node name="Slots" type="Node2D" parent="Panel"]
 
-[node name="slot1" type="TextureRect" parent="Panel/slots"]
+[node name="Slot1" type="TextureRect" parent="Panel/Slots"]
 offset_left = 156.0
 offset_top = 112.0
 offset_right = 196.0
 offset_bottom = 152.0
+scale = Vector2(0.1, 0.1)
+stretch_mode = 5
 
-[node name="slot2" type="TextureRect" parent="Panel/slots"]
+[node name="Slot2" type="TextureRect" parent="Panel/Slots"]
 offset_left = 235.0
 offset_top = 112.0
 offset_right = 275.0
 offset_bottom = 152.0
+scale = Vector2(0.1, 0.1)
 
-[node name="slot3" type="TextureRect" parent="Panel/slots"]
+[node name="Slot3" type="TextureRect" parent="Panel/Slots"]
 offset_left = 288.0
 offset_top = 114.0
 offset_right = 328.0
 offset_bottom = 154.0
+scale = Vector2(0.1, 0.1)
 
-[node name="slot4" type="TextureRect" parent="Panel/slots"]
+[node name="Slot4" type="TextureRect" parent="Panel/Slots"]
 offset_left = 373.0
 offset_top = 113.0
 offset_right = 413.0
 offset_bottom = 153.0
+scale = Vector2(0.1, 0.1)
+
+[node name="clear" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.914
+anchor_right = 0.103
+anchor_bottom = 0.921
+offset_left = -0.0160007
+offset_top = -12.922
+offset_right = 0.135994
+offset_bottom = 15.467
+text = "Clear"
+
+[node name="submit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 329.0
+offset_right = 665.0
+offset_bottom = 360.0
+text = "Submit"
+
+[connection signal="pressed" from="Panel/signbuttons/circle" to="." method="_on_circle_pressed"]
+[connection signal="pressed" from="Panel/clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Panel/submit" to="." method="_on_submit_pressed"]

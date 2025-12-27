@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=43 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://dhjgjfv5cyqf1" path="res://assets/signs/rectangle.png" id="21_cj1cy"]
 [ext_resource type="Texture2D" uid="uid://bbc6y46j75f2l" path="res://assets/signs/star.png" id="22_ej77e"]
 [ext_resource type="Texture2D" uid="uid://cs3y2lfwhy81a" path="res://assets/signs/triangle.png" id="23_s7gv7"]
-[ext_resource type="PackedScene" uid="uid://brdkhmjnsgs56" path="res://scenes/puzzle_1.tscn" id="24_ec2pq"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -626,5 +625,3 @@ texture = ExtResource("22_ej77e")
 [node name="triangle" type="Sprite3D" parent="house1/signs"]
 transform = Transform3D(0.099344, -0.00460488, 0.0104669, 0.00461161, 0.0998934, 0.00017789, -0.0104639, 0.000305969, 0.0994506, 37.0577, 4.48572, 50.5325)
 texture = ExtResource("23_s7gv7")
-
-[node name="puzzle1" parent="." instance=ExtResource("24_ec2pq")]
