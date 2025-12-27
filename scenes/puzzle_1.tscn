@@ -101,27 +101,27 @@ position = Vector2(108, 19)
 
 [node name="Slot1" type="TextureRect" parent="Panel/Slots"]
 custom_minimum_size = Vector2(80, 0)
-offset_left = 156.0
-offset_top = 112.0
-offset_right = 236.0
-offset_bottom = 192.0
+offset_left = 61.0
+offset_top = 115.0
+offset_right = 141.0
+offset_bottom = 195.0
 scale = Vector2(0.1, 0.1)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 5
 
 [node name="Slot2" type="TextureRect" parent="Panel/Slots"]
-offset_left = 235.0
-offset_top = 112.0
-offset_right = 275.0
-offset_bottom = 152.0
+offset_left = 180.0
+offset_top = 120.0
+offset_right = 220.0
+offset_bottom = 160.0
 scale = Vector2(0.1, 0.1)
 
 [node name="Slot3" type="TextureRect" parent="Panel/Slots"]
-offset_left = 288.0
-offset_top = 114.0
-offset_right = 328.0
-offset_bottom = 154.0
+offset_left = 284.0
+offset_top = 120.0
+offset_right = 324.0
+offset_bottom = 160.0
 scale = Vector2(0.1, 0.1)
 
 [node name="Slot4" type="TextureRect" parent="Panel/Slots"]
@@ -154,10 +154,10 @@ text = "Submit"
 
 [node name="Message" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 604.0
-offset_top = 6.0
-offset_right = 644.0
-offset_bottom = 29.0
+offset_left = 457.0
+offset_top = 7.0
+offset_right = 497.0
+offset_bottom = 30.0
 
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 0
