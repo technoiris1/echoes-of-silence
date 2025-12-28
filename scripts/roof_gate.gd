@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player_inside and not solved and Input.is_action_just_pressed("interact"):
 		open_puzzle()
-	if player_inside:
+	if player_inside and not solved:
 		label.visible = true
 	if !player_inside: 
 		label.visible = false
