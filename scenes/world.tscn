@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=52 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cs3y2lfwhy81a" path="res://assets/signs/triangle.png" id="23_s7gv7"]
 [ext_resource type="Script" path="res://scripts/gate_marker.gd" id="23_wa6rx"]
 [ext_resource type="PackedScene" uid="uid://brdkhmjnsgs56" path="res://scenes/puzzle_1.tscn" id="24_ec2pq"]
+[ext_resource type="Script" path="res://scripts/fall_gate.gd" id="27_1ydky"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -93,7 +94,7 @@ auto_shader = true
 dual_scaling = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3jklu"]
-size = Vector3(1.31256, 2.52283, 1)
+size = Vector3(1.54004, 2.92693, 1.68137)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bsnt7"]
 size = Vector3(1.32227, 2.31689, 0.389893)
@@ -147,13 +148,13 @@ size = Vector3(1.55759, 2.62122, 0.470201)
 size = Vector3(1.93353, 0.337067, 2.6058)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l82f"]
-size = Vector3(2.51578, 0.115875, 7.82697)
+size = Vector3(2.51578, 0.115875, 7.85831)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a52rq"]
-size = Vector3(0.735626, 0.294189, 2.69617)
+size = Vector3(0.634903, 0.135864, 2.69617)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjjkr"]
-size = Vector3(1.54419, 0.112854, 1.82178)
+size = Vector3(1.57874, 0.112854, 1.8064)
 
 [node name="world" type="Node3D"]
 
@@ -301,9 +302,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0614, 2.07651, 55.3157)
 
 [node name="Roof_Wooden_2x1_Middle12" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0807, 2.07651, 53.3184)
-
-[node name="Roof_Wooden_2x1_Middle13" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1097, 2.07651, 51.3674)
 
 [node name="Roof_Wooden_2x1_Middle14" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1653, 2.06887, 51.3893)
@@ -629,11 +627,11 @@ transform = Transform3D(-0.00275759, 0.446727, 0.894666, 0, 0.89467, -0.446729, 
 shape = SubResource("BoxShape3D_7fkmu")
 
 [node name="CollisionShape3D17" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8358, 3.03792, 56.4058)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8358, 3.03792, 56.3902)
 shape = SubResource("BoxShape3D_6l82f")
 
 [node name="CollisionShape3D26" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7214, 2.99899, 51.7379)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7718, 3.07815, 51.7379)
 shape = SubResource("BoxShape3D_a52rq")
 
 [node name="signs" type="Node" parent="house1"]
@@ -677,9 +675,30 @@ transform = Transform3D(0.099344, -0.00460488, 0.0104669, 0.00461161, 0.0998934,
 texture = ExtResource("23_s7gv7")
 
 [node name="fall_gate" type="Node" parent="house1"]
+script = ExtResource("27_1ydky")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="house1/fall_gate"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="house1/fall_gate/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5764, 3.06344, 51.6462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5509, 3.06344, 51.6386)
 shape = SubResource("BoxShape3D_wjjkr")
+
+[node name="gate_marker" type="MeshInstance3D" parent="house1/fall_gate"]
+transform = Transform3D(0.379745, 0, 0, 0, 0.0290326, 0, 0, 0, 0.409853, 41.4409, 3.12222, 51.4969)
+material_override = SubResource("StandardMaterial3D_l6ego")
+mesh = SubResource("CylinderMesh_q68s1")
+script = ExtResource("23_wa6rx")
+
+[node name="area" type="Area3D" parent="house1/fall_gate"]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house1/fall_gate/area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6225, 4.22248, 51.6407)
+shape = SubResource("BoxShape3D_3jklu")
+
+[node name="wood" parent="house1/fall_gate" instance=ExtResource("9_mrhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1062, 2.07651, 51.3582)
+
+[node name="label" type="Label3D" parent="house1/fall_gate"]
+transform = Transform3D(0.766246, 0, -0.642547, 0, 1, 0, 0.642547, 0, 0.766246, 41.4069, 5.05619, 51.9059)
+text = "Hold 'E'"
