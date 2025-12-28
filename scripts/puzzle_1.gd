@@ -48,7 +48,7 @@ func _on_submit_pressed() -> void:
 		return
 
 	if chosen_symbols == CORRECT_SEQUENCE:
-		show_message("Correct sequence!", Color.GREEN)
+		show_message("Correct sequence! Press 'Exit'.", Color.GREEN)
 		solved = true
 	else:
 		show_message("Wrong sequence. Try again.", Color.RED)

@@ -6,7 +6,7 @@ extends Node
 @onready var gate_collision := $collisions/collisionbody
 @onready var gate_area := $area
 @onready var UILayer := $Ui_Layer
-
+@onready var label := $label
 var player_inside := false
 var solved := false
 var puzzle_instance: Control = null
@@ -18,11 +18,12 @@ func _ready() -> void:
 	gate_area.body_exited.connect(_on_body_exited)
 
 func _process(_delta: float) -> void:
-	# Open puzzle
 	if player_inside and not solved and Input.is_action_just_pressed("interact"):
 		open_puzzle()
-
-	# ESC closes puzzle if it's open
+	if player_inside:
+		label.visible = true
+	if !player_inside: 
+		label.visible = false
 	if puzzle_instance != null and Input.is_action_just_pressed("ui_cancel"):
 		close_puzzle()
 

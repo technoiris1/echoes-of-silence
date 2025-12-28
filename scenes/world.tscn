@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=48 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dhjgjfv5cyqf1" path="res://assets/signs/rectangle.png" id="21_cj1cy"]
 [ext_resource type="Texture2D" uid="uid://bbc6y46j75f2l" path="res://assets/signs/star.png" id="22_ej77e"]
 [ext_resource type="Texture2D" uid="uid://cs3y2lfwhy81a" path="res://assets/signs/triangle.png" id="23_s7gv7"]
+[ext_resource type="Script" path="res://scripts/gate_marker.gd" id="23_wa6rx"]
 [ext_resource type="PackedScene" uid="uid://brdkhmjnsgs56" path="res://scenes/puzzle_1.tscn" id="24_ec2pq"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
@@ -96,6 +97,15 @@ size = Vector3(1.31256, 2.52283, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bsnt7"]
 size = Vector3(1.32227, 2.31689, 0.389893)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6ego"]
+transparency = 1
+albedo_color = Color(1, 0.835294, 0.309804, 1)
+emission_enabled = true
+emission = Color(1, 0.835294, 0.309804, 1)
+emission_energy_multiplier = 1.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q68s1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wpqj"]
 size = Vector3(0.292419, 3.60172, 9.79556)
@@ -180,6 +190,10 @@ shape = SubResource("BoxShape3D_bsnt7")
 
 [node name="Ui_Layer" type="CanvasLayer" parent="house1/roof_gate"]
 unique_name_in_owner = true
+
+[node name="label" type="Label3D" parent="house1/roof_gate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5946, 5.67921, 56.2874)
+text = "Press 'E' to interact."
 
 [node name="visuals" type="Node3D" parent="house1"]
 
@@ -504,6 +518,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5948, 3.21322, 55.8154)
 [node name="Corner_ExteriorWide_Brick5" parent="house1/visuals" instance=ExtResource("20_p63ix")]
 transform = Transform3D(-0.00965156, 0, 0.999954, 0, 1, 0, -0.999954, 0, -0.00965156, 37.0567, 3.032, 50.6724)
 
+[node name="gate_marker" type="MeshInstance3D" parent="house1/visuals"]
+transform = Transform3D(0.379745, 0, 0, 0, 0.0290326, 0, 0, 0, 0.409853, 39.5555, 3.12222, 56.551)
+material_override = SubResource("StandardMaterial3D_l6ego")
+mesh = SubResource("CylinderMesh_q68s1")
+script = ExtResource("23_wa6rx")
+
 [node name="collisions" type="StaticBody3D" parent="house1"]
 collision_mask = 3
 
@@ -614,12 +634,13 @@ text = "II"
 [node name="Label3D3" type="Label3D" parent="house1/signs"]
 transform = Transform3D(-0.999906, 0, -0.0137003, 0, 1, 0, 0.0137003, 0, -0.999906, 37.1802, 4.7397, 50.513)
 modulate = Color(0, 0, 0, 1)
-text = "III"
+text = "IIII
+"
 
 [node name="Label3D4" type="Label3D" parent="house1/signs"]
 transform = Transform3D(-0.999906, 0, -0.0137003, 0, 1, 0, 0.0137003, 0, -0.999906, 42.1721, 4.7397, 50.6501)
 modulate = Color(0, 0, 0, 1)
-text = "IIII
+text = "III
 "
 
 [node name="circle" type="Sprite3D" parent="house1/signs"]

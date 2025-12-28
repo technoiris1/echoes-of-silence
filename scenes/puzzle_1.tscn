@@ -167,6 +167,23 @@ offset_right = 49.0
 offset_bottom = 40.0
 text = "Exit"
 
+[node name="hidden thing" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 321.0
+offset_right = 588.0
+offset_bottom = 370.0
+text = "Look around at your surroundings to find the correct sequence,
+it's hidden somewhere"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 60.0
+offset_right = 538.0
+offset_bottom = 83.0
+text = "Click on the symbols to make the correct sequence"
+
 [connection signal="pressed" from="Panel/signbuttons/circle" to="." method="_on_circle_pressed"]
 [connection signal="pressed" from="Panel/clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="Panel/submit" to="." method="_on_submit_pressed"]
