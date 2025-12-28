@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=51 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -111,7 +111,7 @@ emission_energy_multiplier = 1.9
 size = Vector3(0.292419, 3.60172, 9.79556)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8hdvw"]
-size = Vector3(7.89307, 0.14209, 9.94238)
+size = Vector3(5.56226, 0.14209, 9.94238)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a8x0v"]
 size = Vector3(7.78387, 3.59875, 0.375488)
@@ -145,6 +145,15 @@ size = Vector3(1.55759, 2.62122, 0.470201)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fkmu"]
 size = Vector3(1.93353, 0.337067, 2.6058)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6l82f"]
+size = Vector3(2.51578, 0.115875, 7.82697)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a52rq"]
+size = Vector3(0.735626, 0.294189, 2.69617)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjjkr"]
+size = Vector3(1.54419, 0.112854, 1.82178)
 
 [node name="world" type="Node3D"]
 
@@ -536,7 +545,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3236, 1.30984, 55.3513)
 shape = SubResource("BoxShape3D_5wpqj")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1489, 3.03146, 55.3708)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9835, 3.03146, 55.3708)
 shape = SubResource("BoxShape3D_8hdvw")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="house1/collisions"]
@@ -619,6 +628,14 @@ shape = SubResource("BoxShape3D_7fkmu")
 transform = Transform3D(-0.00275759, 0.446727, 0.894666, 0, 0.89467, -0.446729, -0.999996, -0.00123189, -0.00246713, 36.305, 0.305085, 61.2619)
 shape = SubResource("BoxShape3D_7fkmu")
 
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8358, 3.03792, 56.4058)
+shape = SubResource("BoxShape3D_6l82f")
+
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7214, 2.99899, 51.7379)
+shape = SubResource("BoxShape3D_a52rq")
+
 [node name="signs" type="Node" parent="house1"]
 
 [node name="Label3D" type="Label3D" parent="house1/signs"]
@@ -658,3 +675,11 @@ texture = ExtResource("22_ej77e")
 [node name="triangle" type="Sprite3D" parent="house1/signs"]
 transform = Transform3D(0.099344, -0.00460488, 0.0104669, 0.00461161, 0.0998934, 0.00017789, -0.0104639, 0.000305969, 0.0994506, 37.0577, 4.48572, 50.5325)
 texture = ExtResource("23_s7gv7")
+
+[node name="fall_gate" type="Node" parent="house1"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="house1/fall_gate"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house1/fall_gate/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5764, 3.06344, 51.6462)
+shape = SubResource("BoxShape3D_wjjkr")
