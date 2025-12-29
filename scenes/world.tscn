@@ -109,13 +109,13 @@ emission_energy_multiplier = 1.9
 [sub_resource type="CylinderMesh" id="CylinderMesh_q68s1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wpqj"]
-size = Vector3(0.292419, 3.60172, 9.79556)
+size = Vector3(0.470623, 3.34456, 9.79556)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8hdvw"]
 size = Vector3(5.56226, 0.14209, 9.94238)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a8x0v"]
-size = Vector3(7.78387, 3.59875, 0.375488)
+size = Vector3(7.78387, 3.39297, 0.269043)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vp4mo"]
 size = Vector3(2.03516, 3.01954, 1.97766)
@@ -439,7 +439,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0807, -1.01336, 53.3184)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1097, -1.01336, 51.3674)
 
 [node name="Roof_Wooden_2x1_Middle34" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1653, -1.02101, 51.3893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1653, -1.02101, 51.4463)
 
 [node name="Roof_Wooden_2x1_Middle35" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1614, -1.00306, 53.3894)
@@ -457,13 +457,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1662, -1.01336, 57.3476)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, -1.01336, 55.3699)
 
 [node name="Roof_Wooden_2x1_Middle40" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, -1.01336, 53.3719)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1644, -1.01336, 53.3805)
 
 [node name="Balcony_Cross_Straight2" parent="house1/visuals" instance=ExtResource("17_ymlsb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4913, 3.07851, 59.1002)
 
 [node name="Roof_Wooden_2x1_Middle41" parent="house1/visuals" instance=ExtResource("9_mrhm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1609, -1.04019, 51.38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1609, -1.04019, 51.4779)
 
 [node name="Balcony_Cross_Straight3" parent="house1/visuals" instance=ExtResource("17_ymlsb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.4886, 3.07851, 59.1002)
@@ -535,11 +535,11 @@ script = ExtResource("23_wa6rx")
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0725, 1.30086, 55.3143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0382, 1.24088, 55.3143)
 shape = SubResource("BoxShape3D_5wpqj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3236, 1.30984, 55.3513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3784, 1.24124, 55.3513)
 shape = SubResource("BoxShape3D_5wpqj")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="house1/collisions"]
@@ -547,7 +547,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9835, 3.03146, 55.3708)
 shape = SubResource("BoxShape3D_8hdvw")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="house1/collisions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3184, 1.29938, 50.5418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3184, 1.19649, 50.606)
 shape = SubResource("BoxShape3D_a8x0v")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="house1/collisions"]

@@ -184,6 +184,8 @@ offset_right = 538.0
 offset_bottom = 83.0
 text = "Click on the symbols to make the correct sequence"
 
+[node name="rects" type="Node" parent="Panel"]
+
 [connection signal="pressed" from="Panel/signbuttons/circle" to="." method="_on_circle_pressed"]
 [connection signal="pressed" from="Panel/clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="Panel/submit" to="." method="_on_submit_pressed"]
