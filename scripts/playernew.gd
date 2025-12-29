@@ -1,21 +1,16 @@
 extends CharacterBody3D
-
 @export var walk_speed := 7.0
 @export var sprint_speed := 12.0
 @export var jump_strength := 15.0
 @export var gravity := 50.0
-
 @onready var spring_arm: SpringArm3D = $SpringArm3D
 @onready var model: Node3D = $character
 @onready var animation_player: AnimationPlayer = $character/AnimationPlayer
-
 var is_sprinting := false
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS  
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	animation_player.play("idle")
-
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().paused = !get_tree().paused
@@ -24,7 +19,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			if get_tree().paused
 			else Input.MOUSE_MODE_CAPTURED
 		)
-
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
 		return  
@@ -54,6 +48,20 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if is_on_floor() and get_slide_collision_count() > 0:
+		var collision = get_last_slide_collision()
+		var collider = collision.get_collider()
+		if collider:
+			var platform = collider.get_parent()
+			if platform and platform.has_method("get_angular_velocity"):
+				var angular_vel = platform.get_angular_velocity()
+				var center = platform.get_center()
+				var offset = global_position - center
+				offset.y = 0
+				var angle = angular_vel * delta
+				var rotated_offset = offset.rotated(Vector3.UP, angle)
+				global_position = center + rotated_offset
+	
 	if move_dir.length() > 0.1:
 		model.rotation.y = atan2(velocity.x, velocity.z)
 	
@@ -63,7 +71,6 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("running" if is_sprinting else "walking")
 	else:
 		animation_player.play("idle")
-
 func _process(_delta: float) -> void:
 	if get_tree().paused:
 		return 

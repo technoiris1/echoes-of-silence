@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq8vmx0qipb42"]
+[gd_scene load_steps=14 format=3 uid="uid://cq8vmx0qipb42"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="1_oppu2"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="2_hhvuw"]
@@ -79,6 +79,9 @@ size = Vector3(52.6187, 1.2872, 57.1226)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mg63n"]
 size = Vector3(2.5453, 1.41064, 14.4148)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_alq70"]
+size = Vector3(9.84346, 1.36168, 9.01938)
+
 [node name="parkour" type="Node3D"]
 
 [node name="Environment" parent="." instance=ExtResource("1_oppu2")]
@@ -116,7 +119,7 @@ mesh = SubResource("BoxMesh_mjwg2")
 [node name="first_step" type="Node3D" parent="main"]
 script = ExtResource("5_cmvra")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="main/first_step"]
+[node name="StaticBody3D" type="AnimatableBody3D" parent="main/first_step"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main/first_step/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0.000261795, 0, -0.000261795, 1, 164.652, 109.218, -38.8259)
@@ -124,4 +127,31 @@ shape = SubResource("BoxShape3D_mg63n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/first_step"]
 transform = Transform3D(-2.52523, 0, 0, 0, 1.39168, 0, 0, 0, 14.4242, 164.646, 109.223, -38.8308)
+mesh = SubResource("BoxMesh_mjwg2")
+
+[node name="second_step2" type="Node3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.1476)
+script = ExtResource("5_cmvra")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main/second_step2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/second_step2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0.000261795, 0, -0.000261795, 1, 164.652, 109.218, -38.8259)
+shape = SubResource("BoxShape3D_mg63n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/second_step2"]
+transform = Transform3D(-2.52523, 0, 0, 0, 1.39168, 0, 0, 0, 14.4242, 164.646, 109.223, -38.8308)
+mesh = SubResource("BoxMesh_mjwg2")
+
+[node name="platform2" type="Node" parent="main"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main/platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.869)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/platform2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.66, 109.249, 24.7698)
+shape = SubResource("BoxShape3D_alq70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/platform2"]
+transform = Transform3D(-9.8678, 0, 0, 0, 1.39168, 0, 0, 0, 9.03397, 164.646, 109.223, -69.075)
 mesh = SubResource("BoxMesh_mjwg2")
