@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq8vmx0qipb42"]
+[gd_scene load_steps=13 format=3 uid="uid://cq8vmx0qipb42"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="1_oppu2"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="2_hhvuw"]
 [ext_resource type="PackedScene" uid="uid://dwnhqfjq7v1pq" path="res://demo/components/Borders.tscn" id="3_km0qw"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="4_3qcg5"]
+[ext_resource type="Script" path="res://scripts/first_step.gd" id="5_cmvra"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -112,7 +113,8 @@ shape = SubResource("BoxShape3D_nrw8l")
 transform = Transform3D(-52.7364, 0, 0, 0, 1.39168, 0, 0, 0, 57.2134, 164.646, 109.223, 0)
 mesh = SubResource("BoxMesh_mjwg2")
 
-[node name="first_step" type="Node" parent="main"]
+[node name="first_step" type="Node3D" parent="main"]
+script = ExtResource("5_cmvra")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="main/first_step"]
 
