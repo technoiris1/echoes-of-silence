@@ -155,3 +155,44 @@ shape = SubResource("BoxShape3D_alq70")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/platform2"]
 transform = Transform3D(-9.8678, 0, 0, 0, 1.39168, 0, 0, 0, 9.03397, 164.646, 109.223, -69.075)
 mesh = SubResource("BoxMesh_mjwg2")
+
+[node name="first_step2" type="Node3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.6928)
+script = ExtResource("5_cmvra")
+
+[node name="StaticBody3D" type="AnimatableBody3D" parent="main/first_step2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/first_step2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0.000261795, 0, -0.000261795, 1, 164.652, 109.218, -38.8259)
+shape = SubResource("BoxShape3D_mg63n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/first_step2"]
+transform = Transform3D(-2.52523, 0, 0, 0, 1.39168, 0, 0, 0, 14.4242, 164.646, 109.223, -38.8308)
+mesh = SubResource("BoxMesh_mjwg2")
+
+[node name="second_step3" type="Node3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60.8404)
+script = ExtResource("5_cmvra")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main/second_step3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/second_step3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0.000261795, 0, -0.000261795, 1, 164.652, 109.218, -38.8259)
+shape = SubResource("BoxShape3D_mg63n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/second_step3"]
+transform = Transform3D(-2.52523, 0, 0, 0, 1.39168, 0, 0, 0, 14.4242, 164.646, 109.223, -38.8308)
+mesh = SubResource("BoxMesh_mjwg2")
+
+[node name="platform3" type="Node" parent="main"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main/platform3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.869)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/platform3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.66, 109.249, -19.4457)
+shape = SubResource("BoxShape3D_alq70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/platform3"]
+transform = Transform3D(-9.8678, 0, 0, 0, 1.39168, 0, 0, 0, 9.03397, 164.646, 109.223, -113.308)
+mesh = SubResource("BoxMesh_mjwg2")
