@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkf1seiq1nbqc"
 path.s3tc="res://.godot/imported/T_MetalOrnaments_Roughness.png-79dcc6e9b99c18aeec7d27ad79f52ffd.s3tc.ctex"
+path.etc2="res://.godot/imported/T_MetalOrnaments_Roughness.png-79dcc6e9b99c18aeec7d27ad79f52ffd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/village kit/T_MetalOrnaments_Roughness.png"
-dest_files=["res://.godot/imported/T_MetalOrnaments_Roughness.png-79dcc6e9b99c18aeec7d27ad79f52ffd.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_MetalOrnaments_Roughness.png-79dcc6e9b99c18aeec7d27ad79f52ffd.s3tc.ctex", "res://.godot/imported/T_MetalOrnaments_Roughness.png-79dcc6e9b99c18aeec7d27ad79f52ffd.etc2.ctex"]
 
 [params]
 

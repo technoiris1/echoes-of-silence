@@ -15,6 +15,11 @@ run/main_scene="res://scenes/setup.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/boujie_water_shader/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/mixamo_animation_retargeter/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
@@ -72,3 +77,7 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

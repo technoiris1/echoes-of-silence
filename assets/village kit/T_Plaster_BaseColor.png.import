@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crdxeeepyf2go"
 path.s3tc="res://.godot/imported/T_Plaster_BaseColor.png-e0a45ef31c7de883791a7c0edd6b8825.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Plaster_BaseColor.png-e0a45ef31c7de883791a7c0edd6b8825.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/village kit/T_Plaster_BaseColor.png"
-dest_files=["res://.godot/imported/T_Plaster_BaseColor.png-e0a45ef31c7de883791a7c0edd6b8825.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_Plaster_BaseColor.png-e0a45ef31c7de883791a7c0edd6b8825.s3tc.ctex", "res://.godot/imported/T_Plaster_BaseColor.png-e0a45ef31c7de883791a7c0edd6b8825.etc2.ctex"]
 
 [params]
 

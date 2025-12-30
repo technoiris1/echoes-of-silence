@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs3y2lfwhy81a"
 path.s3tc="res://.godot/imported/triangle.png-2b7bae8c87f80999fb2ae0817d294158.s3tc.ctex"
+path.etc2="res://.godot/imported/triangle.png-2b7bae8c87f80999fb2ae0817d294158.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/signs/triangle.png"
-dest_files=["res://.godot/imported/triangle.png-2b7bae8c87f80999fb2ae0817d294158.s3tc.ctex"]
+dest_files=["res://.godot/imported/triangle.png-2b7bae8c87f80999fb2ae0817d294158.s3tc.ctex", "res://.godot/imported/triangle.png-2b7bae8c87f80999fb2ae0817d294158.etc2.ctex"]
 
 [params]
 

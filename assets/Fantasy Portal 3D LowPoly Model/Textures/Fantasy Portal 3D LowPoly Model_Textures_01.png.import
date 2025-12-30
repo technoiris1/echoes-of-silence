@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb6uqr2yrprg1"
 path.s3tc="res://.godot/imported/Fantasy Portal 3D LowPoly Model_Textures_01.png-3970c415e7baf3f0ed8fd51485ddf697.s3tc.ctex"
+path.etc2="res://.godot/imported/Fantasy Portal 3D LowPoly Model_Textures_01.png-3970c415e7baf3f0ed8fd51485ddf697.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Fantasy Portal 3D LowPoly Model/Textures/Fantasy Portal 3D LowPoly Model_Textures_01.png"
-dest_files=["res://.godot/imported/Fantasy Portal 3D LowPoly Model_Textures_01.png-3970c415e7baf3f0ed8fd51485ddf697.s3tc.ctex"]
+dest_files=["res://.godot/imported/Fantasy Portal 3D LowPoly Model_Textures_01.png-3970c415e7baf3f0ed8fd51485ddf697.s3tc.ctex", "res://.godot/imported/Fantasy Portal 3D LowPoly Model_Textures_01.png-3970c415e7baf3f0ed8fd51485ddf697.etc2.ctex"]
 
 [params]
 

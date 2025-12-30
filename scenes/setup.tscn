@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" path="res://scripts/setup.gd" id="1_kb6su"]
 
-[node name="setup" type="Node2D"]
+[node name="setup" type="Node"]
 script = ExtResource("1_kb6su")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1365.0
-offset_bottom = 761.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)

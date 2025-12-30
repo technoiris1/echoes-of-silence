@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var main_scene = "res://scenes/intro.tscn"
 

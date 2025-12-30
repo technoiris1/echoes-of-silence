@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://br0x38pd7rdt7"
 path.s3tc="res://.godot/imported/T_RoundTiles_BaseColor.png-dd282c497551e0585c9473eb07137a50.s3tc.ctex"
+path.etc2="res://.godot/imported/T_RoundTiles_BaseColor.png-dd282c497551e0585c9473eb07137a50.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/village kit/T_RoundTiles_BaseColor.png"
-dest_files=["res://.godot/imported/T_RoundTiles_BaseColor.png-dd282c497551e0585c9473eb07137a50.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_RoundTiles_BaseColor.png-dd282c497551e0585c9473eb07137a50.s3tc.ctex", "res://.godot/imported/T_RoundTiles_BaseColor.png-dd282c497551e0585c9473eb07137a50.etc2.ctex"]
 
 [params]
 
