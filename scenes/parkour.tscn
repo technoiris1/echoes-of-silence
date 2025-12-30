@@ -196,3 +196,9 @@ shape = SubResource("BoxShape3D_alq70")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="main/platform3"]
 transform = Transform3D(-9.8678, 0, 0, 0, 1.39168, 0, 0, 0, 9.03397, 164.646, 109.223, -113.308)
 mesh = SubResource("BoxMesh_mjwg2")
+
+[node name="WIP label" type="Label3D" parent="."]
+transform = Transform3D(2.14769, 0, 0, 0, 1, 0, 0, 0, 1, 161.372, 137.481, -138.842)
+text = "WIP
+"
+font_size = 3200

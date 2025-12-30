@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=55 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scripts/gate_marker.gd" id="23_wa6rx"]
 [ext_resource type="PackedScene" uid="uid://brdkhmjnsgs56" path="res://scenes/puzzle_1.tscn" id="24_ec2pq"]
 [ext_resource type="Script" path="res://scripts/fall_gate.gd" id="27_1ydky"]
+[ext_resource type="PackedScene" uid="uid://b5dwvc5bhib58" path="res://assets/Fantasy Portal 3D LowPoly Model/FBX/Portal_01.fbx" id="28_hp4ce"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -152,6 +153,14 @@ size = Vector3(2.51578, 0.115875, 7.85831)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a52rq"]
 size = Vector3(0.634903, 0.135864, 2.69617)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ps4h"]
+height = 0.226984
+radius = 1.22326
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ncm3e"]
+height = 0.255972
+radius = 0.943292
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjjkr"]
 size = Vector3(1.57874, 0.112854, 1.8064)
@@ -634,6 +643,14 @@ shape = SubResource("BoxShape3D_6l82f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7718, 3.07815, 51.7379)
 shape = SubResource("BoxShape3D_a52rq")
 
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2023, -0.036673, 59.0311)
+shape = SubResource("CylinderShape3D_0ps4h")
+
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="house1/collisions"]
+transform = Transform3D(1, 0, 0, 0, -6.97811e-05, 1, 0, -1, -6.97811e-05, 40.2049, 1.25366, 59.1084)
+shape = SubResource("CylinderShape3D_ncm3e")
+
 [node name="signs" type="Node" parent="house1"]
 
 [node name="Label3D" type="Label3D" parent="house1/signs"]
@@ -702,3 +719,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1062, 2.07651, 51.3582)
 [node name="label" type="Label3D" parent="house1/fall_gate"]
 transform = Transform3D(0.766246, 0, -0.642547, 0, 1, 0, 0.642547, 0, 0.766246, 41.4069, 5.05619, 51.9059)
 text = "Hold 'E'"
+
+[node name="Portal_01" parent="." instance=ExtResource("28_hp4ce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1826, 0.0819854, 59.0426)
