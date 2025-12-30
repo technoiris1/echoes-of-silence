@@ -199,6 +199,6 @@ mesh = SubResource("BoxMesh_mjwg2")
 
 [node name="WIP label" type="Label3D" parent="."]
 transform = Transform3D(2.14769, 0, 0, 0, 1, 0, 0, 0, 1, 161.372, 137.481, -138.842)
-text = "WIP
-"
+text = "new dimension (WIP
+)"
 font_size = 3200
