@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://kd2wqp8y5aa5"]
+[gd_scene load_steps=57 format=3 uid="uid://kd2wqp8y5aa5"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="3_utre3"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="3_vn2d4"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://brdkhmjnsgs56" path="res://scenes/puzzle_1.tscn" id="24_ec2pq"]
 [ext_resource type="Script" path="res://scripts/fall_gate.gd" id="27_1ydky"]
 [ext_resource type="PackedScene" uid="uid://b5dwvc5bhib58" path="res://assets/Fantasy Portal 3D LowPoly Model/FBX/Portal_01.fbx" id="28_hp4ce"]
+[ext_resource type="Script" path="res://scripts/portal_area.gd" id="29_jd28x"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -164,6 +165,10 @@ radius = 0.943292
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjjkr"]
 size = Vector3(1.57874, 0.112854, 1.8064)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n60nm"]
+height = 0.746672
+radius = 0.714468
 
 [node name="world" type="Node3D"]
 
@@ -722,3 +727,11 @@ text = "Hold 'E'"
 
 [node name="Portal_01" parent="." instance=ExtResource("28_hp4ce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1826, 0.0819854, 59.0426)
+
+[node name="area" type="Area3D" parent="Portal_01"]
+collision_mask = 32
+script = ExtResource("29_jd28x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal_01/area"]
+transform = Transform3D(1, 0, 0, 0, 0.0095294, -0.999955, 0, 0.999955, 0.0095294, 0.0431976, 1.24436, 0.0654488)
+shape = SubResource("CylinderShape3D_n60nm")
