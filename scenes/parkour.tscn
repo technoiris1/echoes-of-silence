@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq8vmx0qipb42"]
+[gd_scene load_steps=16 format=3 uid="uid://cq8vmx0qipb42"]
 
 [ext_resource type="PackedScene" uid="uid://bb2lp50sjndus" path="res://demo/components/Environment.tscn" id="1_oppu2"]
 [ext_resource type="Terrain3DAssets" uid="uid://dal3jhw6241qg" path="res://demo/data/assets.tres" id="2_hhvuw"]
 [ext_resource type="PackedScene" uid="uid://dwnhqfjq7v1pq" path="res://demo/components/Borders.tscn" id="3_km0qw"]
 [ext_resource type="PackedScene" uid="uid://cysi1ego3q0fm" path="res://objects/playernew.tscn" id="4_3qcg5"]
 [ext_resource type="Script" path="res://scripts/first_step.gd" id="5_cmvra"]
+[ext_resource type="Script" path="res://scripts/parkour_restart.gd" id="6_awvly"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -81,6 +82,9 @@ size = Vector3(2.5453, 1.41064, 14.4148)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_alq70"]
 size = Vector3(9.84346, 1.36168, 9.01938)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8pgm"]
+size = Vector3(98.6996, 1.26062, 254.22)
 
 [node name="parkour" type="Node3D"]
 
@@ -199,6 +203,14 @@ mesh = SubResource("BoxMesh_mjwg2")
 
 [node name="WIP label" type="Label3D" parent="."]
 transform = Transform3D(2.14769, 0, 0, 0, 1, 0, 0, 0, 1, 161.372, 137.481, -138.842)
-text = "new dimension (WIP
+text = "matrix dimension (WIP
 )"
 font_size = 3200
+
+[node name="parkour_restart" type="Area3D" parent="."]
+collision_mask = 32
+script = ExtResource("6_awvly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="parkour_restart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.415, 95.1724, -93.9643)
+shape = SubResource("BoxShape3D_h8pgm")
