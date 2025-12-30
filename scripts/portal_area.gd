@@ -1,6 +1,6 @@
 extends Area3D
 
-var next_scene_path: String = "res://scenes/parkour.tscn"
+var next_scene_path: String = "res://scenes/intro.tscn"
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
