@@ -201,8 +201,21 @@ shape = SubResource("BoxShape3D_alq70")
 transform = Transform3D(-9.8678, 0, 0, 0, 1.39168, 0, 0, 0, 9.03397, 164.646, 109.223, -113.308)
 mesh = SubResource("BoxMesh_mjwg2")
 
+[node name="platform4" type="Node" parent="main"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="main/platform4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.869)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="main/platform4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.66, 109.249, -60.6385)
+shape = SubResource("BoxShape3D_alq70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="main/platform4"]
+transform = Transform3D(-9.8678, 0, 0, 0, 1.39168, 0, 0, 0, 9.03397, 164.646, 109.223, -154.501)
+mesh = SubResource("BoxMesh_mjwg2")
+
 [node name="WIP label" type="Label3D" parent="."]
-transform = Transform3D(2.14769, 0, 0, 0, 1, 0, 0, 0, 1, 161.372, 137.481, -138.842)
+transform = Transform3D(2.14769, 0, 0, 0, 1, 0, 0, 0, 1, 161.372, 137.481, -233.061)
 text = "matrix dimension (WIP
 )"
 font_size = 3200
